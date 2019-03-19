@@ -116,7 +116,7 @@ class Welcome extends CI_Controller {
 	* @return [STRING]
 	*/
 	public function get_modelos($data) {
-		$arr[0] = "EXCELENTÍSSIMO SENHOR DOUTOR JUIZ ".rand('DE DIREITO','')."".$data['competencia']." DE "$data['cidade']."/".rand($data['uf'],$data['estado']).".";
+		$arr[0] = "EXCELENTÍSSIMO SENHOR DOUTOR JUIZ ".rand('DE DIREITO','')."".$data['competencia']." DE ".$data['cidade']."/".rand($data['uf'],$data['estado']).".";
 		$arr[0] .= '<br/><br/><br/>';
 		$arr[0] .= $data['nome'].', '.$data['nacionalidade'].', '.$data['estado_civil'].', '.$data['profissao'].', portador do CPF nº. '.$data['cpf'].' e do RG '.$data['rg'].' (SSP/MG), portador da CTPS nº. '.$data['ctps_numero'].', série '.$data['ctps_serie'].', com endereço na '.$data['logradouro'].', nº. 81, Centro, Caratinga/MG, CEP 35.300-365, vem, respeitosamente, à presença de Vossa Excelência, por seu advogado abaixo assinado, propor a presente:';
 		$arr[0] .= '<br/>';
@@ -143,5 +143,15 @@ class Welcome extends CI_Controller {
 		 		return array('competencia'=>'DO JUIZADO ESPECIAL CIVEL DO FORO CENTRAL DA COMARCA DA REGIAO METROPOLITANA DE');
 		 		break;
 		 } 
+	}
+
+	/**
+	* @see Get any dates and times in text
+	* @param [String] text syntax
+	*/
+	public function check_get_date($frase) {
+		$reg='([01][0-9]).([01][0-9]).([0-9]{4})'; // v1.
+		$reg='([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})'; // v2 - Matheus
+
 	}
 }
