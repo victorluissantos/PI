@@ -1,315 +1,605 @@
 <?php
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	https://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-/*
- *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT
- *---------------------------------------------------------------
- *
- * You can load different configurations depending on your
- * current environment. Setting the environment also influences
- * things like logging and error reporting.
- *
- * This can be set to anything, but default usage is:
- *
- *     development
- *     testing
- *     production
- *
- * NOTE: If you change these, also change the error_reporting() code below
- */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+include('hcs/Controller.php');
 
-/*
- *---------------------------------------------------------------
- * ERROR REPORTING
- *---------------------------------------------------------------
- *
- * Different environments will require different levels of error reporting.
- * By default development will show errors but testing and live will hide them.
- */
-switch (ENVIRONMENT)
-{
-	case 'development':
-		error_reporting(-1);
-		ini_set('display_errors', 1);
-	break;
+$palavra = new Palavras();
+var_dump($palavra->silabas('conflito'));
+?>
 
-	case 'testing':
-	case 'production':
-		ini_set('display_errors', 0);
-		if (version_compare(PHP_VERSION, '5.3', '>='))
-		{
-			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-		}
-		else
-		{
-			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-		}
-	break;
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	default:
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'The application environment is not set correctly.';
-		exit(1); // EXIT_ERROR
-}
+  <!-- Site Properties -->
+  <title>Bootstrap - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.css">
 
-/*
- *---------------------------------------------------------------
- * SYSTEM DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" directory.
- * Set the path if it is not in the same directory as this file.
- */
-	$system_path = 'system';
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/site.css">
 
-/*
- *---------------------------------------------------------------
- * APPLICATION DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * If you want this front controller to use a different "application"
- * directory than the default one you can set its name here. The directory
- * can also be renamed or relocated anywhere on your server. If you do,
- * use an absolute (full) server path.
- * For more info please see the user guide:
- *
- * https://codeigniter.com/user_guide/general/managing_apps.html
- *
- * NO TRAILING SLASH!
- */
-	$application_folder = 'application';
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/menu.css">
 
-/*
- *---------------------------------------------------------------
- * VIEW DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * If you want to move the view directory out of the application
- * directory, set the path to it here. The directory can be renamed
- * and relocated anywhere on your server. If blank, it will default
- * to the standard location inside your application directory.
- * If you do move this, use an absolute (full) server path.
- *
- * NO TRAILING SLASH!
- */
-	$view_folder = '';
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/components/transition.css">
 
 
-/*
- * --------------------------------------------------------------------
- * DEFAULT CONTROLLER
- * --------------------------------------------------------------------
- *
- * Normally you will set your default controller in the routes.php file.
- * You can, however, force a custom routing by hard-coding a
- * specific controller class/function here. For most applications, you
- * WILL NOT set your routing here, but it's an option for those
- * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
- *
- * IMPORTANT: If you set the routing here, NO OTHER controller will be
- * callable. In essence, this preference limits your application to ONE
- * specific controller. Leave the function name blank if you need
- * to call functions dynamically via the URI.
- *
- * Un-comment the $routing array below to use this feature
- */
-	// The directory name, relative to the "controllers" directory.  Leave blank
-	// if your controller is not in a sub-directory within the "controllers" one
-	// $routing['directory'] = '';
-
-	// The controller class file name.  Example:  mycontroller
-	// $routing['controller'] = '';
-
-	// The controller function you wish to be called.
-	// $routing['function']	= '';
+  <script src="https://semantic-ui.com/examples/assets/library/jquery.min.js"></script>
+  <script src="https://semantic-ui.com/dist/semantic.js"></script>	
+  <script src="https://semantic-ui.com/dist/components/transition.js"></script>
+  <script src="https://semantic-ui.com/dist/components/dropdown.js"></script>
+  <script src="https://semantic-ui.com/dist/components/visibility.js"></script>
 
 
-/*
- * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
- * -------------------------------------------------------------------
- *
- * The $assign_to_config array below will be passed dynamically to the
- * config class when initialized. This allows you to set custom config
- * items or override any default config values found in the config.php file.
- * This can be handy as it permits you to share one application between
- * multiple front controller files, with each file containing different
- * config values.
- *
- * Un-comment the $assign_to_config array below to use this feature
- */
-	// $assign_to_config['name_of_config_item'] = 'value of config item';
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.selection.dropdown').dropdown();
+      $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
+
+<script>
+  $(document)
+    .ready(function() {
+
+      // fix main menu to page on passing
+      $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.overlay').visibility({
+        type: 'fixed',
+        offset: 80
+      });
+
+      // lazy load images
+      $('.image').visibility({
+        type: 'image',
+        transition: 'vertical flip in',
+        duration: 500
+      });
+
+      // show dropdown on hover
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
+
+  <style type="text/css">
+
+  body {
+    background-color: #FFFFFF;
+  }
+  .main.container {
+    margin-top: 2em;
+  }
+
+  .main.menu {
+    margin-top: 4em;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    transition:
+      box-shadow 0.5s ease,
+      padding 0.5s ease
+    ;
+  }
+  .main.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+
+  .overlay {
+    float: left;
+    margin: 0em 3em 1em 0em;
+  }
+  .overlay .menu {
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+  }
+
+  .main.menu.fixed {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .overlay.fixed .menu {
+    left: 800px;
+  }
+
+  .text.container .left.floated.image {
+    margin: 2em 2em 2em -4em;
+  }
+  .text.container .right.floated.image {
+    margin: 2em -4em 2em 2em;
+  }
+
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  </style>
 
 
+</head>
+<body>
 
-// --------------------------------------------------------------------
-// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-// --------------------------------------------------------------------
 
-/*
- * ---------------------------------------------------------------
- *  Resolve the system path for increased reliability
- * ---------------------------------------------------------------
- */
+  <div class="ui main text container">
+    <h1 class="ui header">Sticky Example</h1>
+    <p>This example shows how to use lazy loaded images, a sticky menu, and a simple text container</p>
+  </div>
 
-	// Set the current directory correctly for CLI requests
-	if (defined('STDIN'))
-	{
-		chdir(dirname(__FILE__));
-	}
 
-	if (($_temp = realpath($system_path)) !== FALSE)
-	{
-		$system_path = $_temp.DIRECTORY_SEPARATOR;
-	}
-	else
-	{
-		// Ensure there's a trailing slash
-		$system_path = strtr(
-			rtrim($system_path, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		).DIRECTORY_SEPARATOR;
-	}
+  <div class="ui borderless main menu">
+    <div class="ui text container">
+      <div class="header item">
+        <img class="logo" src="https://semantic-ui.com/examples/assets/images/logo.png">
+        Project Name
+      </div>
+      <a href="#" class="item">Blog</a>
+      <a href="#" class="item">Articles</a>
+      <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Link Item</div>
+          <div class="item">Link Item</div>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <div class="item">Link Item</div>
+              <div class="item">Link Item</div>
+            </div>
+          </div>
+          <div class="item">Link Item</div>
+        </div>
+      </a>
+    </div>
+  </div>
 
-	// Is the system path correct?
-	if ( ! is_dir($system_path))
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
-		exit(3); // EXIT_CONFIG
-	}
+<div class="ui grid container">
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Bootstrap Migration</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="ui message">
+        <h1 class="ui header">Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <a class="ui blue button">Learn more &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Buttons</h1>
+      <a class="ui button" tabindex="0">
+        Default
+      </a>
+      <a class="ui primary button" tabindex="0">
+        Primary
+      </a>
+      <a class="ui basic button" tabindex="0">
+        Basic
+      </a>
+      <a class="ui positive button" tabindex="0">
+        Success
+      </a>
+      <a class="ui negative button" tabindex="0">
+        Error
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Thumbnails</h1>
+      <div class="ui divider"></div>
+      <img class="ui small image" src="assets/images/wireframe/image.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Dropdown</h1>
+      <div class="ui divider"></div>
+      <div class="ui selection dropdown">
+        <input type="hidden" name="selection">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select</div>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+      <div class="ui vertical menu">
+        <a class="active item">
+          Friends
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <div class="ui dropdown item">
+          <i class="dropdown icon"></i>
+          More
+          <div class="menu">
+            <a class="item">Edit Profile</a>
+            <a class="item">Choose Language</a>
+            <a class="item">Account Settings</a>
+          </div>
+        </div>
+      </div>
 
-/*
- * -------------------------------------------------------------------
- *  Now that we know the path, set the main path constants
- * -------------------------------------------------------------------
- */
-	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+      <div class="ui dropdown">
+        <div class="visible menu">
+          <div class="header">Categories</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Clothing</span>
+            <div class="menu">
+              <div class="header">Men's</div>
+              <div class="item">Shirts</div>
+              <div class="item">Pants</div>
+              <div class="item">Jeans</div>
+              <div class="item">Shoes</div>
+              <div class="divider"></div>
+              <div class="header">Women's</div>
+              <div class="item">Dresses</div>
+              <div class="item">Shoes</div>
+              <div class="item">Bags</div>
+            </div>
+          </div>
+          <div class="item">Home Goods</div>
+          <div class="item">Bedroom</div>
+          <div class="divider"></div>
+          <div class="header">Order</div>
+          <div class="item">Status</div>
+          <div class="item">Cancellations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Badges</h1>
+      <div class="ui divider"></div>
+      <div class="ui vertical menu">
+        <div class="item">
+          One <span class="ui label">2</span>
+        </div>
+        <div class="item">
+          Two <span class="ui label">2</span>
+        </div>
+        <div class="item">
+          Three <span class="ui label">2</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	// Path to the system directory
-	define('BASEPATH', $system_path);
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Tables</h1>
+      <div class="ui two column grid">
+        <div class="column">
+          <table class="ui table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui basic table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui definition table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <table class="ui very basic table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Premium Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jamie</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sixteen wide column">
+          <table class="ui celled structured table">
+            <thead>
+              <tr>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Type</th>
+                <th rowspan="2">Files</th>
+                <th colspan="3">Languages</th>
+              </tr>
+              <tr>
+                <th>Ruby</th>
+                <th>JavaScript</th>
+                <th>Python</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alpha Team</td>
+                <td>Project 1</td>
+                <td>2</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowspan="3">Beta Team</td>
+                <td>Project 1</td>
+                <td>52</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Project 2</td>
+                <td>12</td>
+                <td></td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Project 3</td>
+                <td>21</td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Alerts</h1>
+      <div class="ui divider"></div>
+      <div class="ui positive message">Well done! You successfully read this important alert message.</div>
+      <div class="ui info message">Heads up! This alert needs your attention, but it's not super important.</div>
+      <div class="ui warning message">Warning! Best check yo self, you're not looking too good.</div>
+      <div class="ui error message">Oh snap! Change a few things up and try submitting again.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">List groups</h1>
+      <div class="ui divider"></div>
+      <div class="ui three column grid">
+        <div class="column">
+          <div class="ui segments">
+            <div class="ui segment">
+              <p>Cras justo odio</p>
+            </div>
+            <div class="ui segment">
+              <p>Dapibus ac facilisis in</p>
+            </div>
+            <div class="ui segment">
+              <p>Morbi leo risus</p>
+            </div>
+            <div class="ui segment">
+              <p>Porta ac consectetur ac</p>
+            </div>
+            <div class="ui segment">
+             <p>Vestibulum at eros</p>
+           </div>
+         </div>
+        </div>
+        <div class="column">
+          <div class="ui fluid vertical menu">
+            <a class="item">
+              <p>Cras justo odio</p>
+            </a>
+            <a class="item">
+             <p>Vestibulum at eros</p>
+            </a>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui fluid vertical menu">
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="item">
+              <h1 class="ui medium header">List group item heading</h1>
+              <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Panels</h1>
+      <div class="ui divider"></div>
+      <div class="ui three column grid">
+        <div class="column">
+          <div class="ui segments">
+            <div class="ui red segment">One</div>
+            <div class="ui blue segment">Two</div>
+            <div class="ui green segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui raised segments">
+            <div class="ui segment">One</div>
+            <div class="ui segment">Two</div>
+            <div class="ui segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui stacked segments">
+            <div class="ui segment">One</div>
+            <div class="ui segment">Two</div>
+            <div class="ui segment">Three</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui top attached error message">Error</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <div class="ui top attached info message">Info</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <div class="ui top attached success message">Success</div>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached inverted header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached block header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+        <div class="column">
+          <h4 class="ui top attached header">Header</h4>
+          <div class="ui bottom attached segment">Panel content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h1 class="ui header">Wells</h1>
+      <div class="ui divider"></div>
+      <div class="ui segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui secondary segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui tertiary segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui secondary inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+      <div class="ui tertiary inverted segment">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-	// Path to the front controller (this file) directory
-	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+</body>
 
-	// Name of the "system" directory
-	define('SYSDIR', basename(BASEPATH));
-
-	// The path to the "application" directory
-	if (is_dir($application_folder))
-	{
-		if (($_temp = realpath($application_folder)) !== FALSE)
-		{
-			$application_folder = $_temp;
-		}
-		else
-		{
-			$application_folder = strtr(
-				rtrim($application_folder, '/\\'),
-				'/\\',
-				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-			);
-		}
-	}
-	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
-	{
-		$application_folder = BASEPATH.strtr(
-			trim($application_folder, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		);
-	}
-	else
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
-		exit(3); // EXIT_CONFIG
-	}
-
-	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
-
-	// The path to the "views" directory
-	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
-	{
-		$view_folder = APPPATH.'views';
-	}
-	elseif (is_dir($view_folder))
-	{
-		if (($_temp = realpath($view_folder)) !== FALSE)
-		{
-			$view_folder = $_temp;
-		}
-		else
-		{
-			$view_folder = strtr(
-				rtrim($view_folder, '/\\'),
-				'/\\',
-				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-			);
-		}
-	}
-	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
-	{
-		$view_folder = APPPATH.strtr(
-			trim($view_folder, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		);
-	}
-	else
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
-		exit(3); // EXIT_CONFIG
-	}
-
-	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE
- * --------------------------------------------------------------------
- *
- * And away we go...
- */
-require_once BASEPATH.'core/CodeIgniter.php';
+</html>
