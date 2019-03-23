@@ -55,7 +55,7 @@ if(isset($_POST) && !empty($_POST)) {
 ?>
 <form method="POST" action="" class="hsf">
 	<div class="input-group mb-3">
-		<input type="text" class="form-control" name="word" placeholder="Direito e Tecnologia, lado a lado no seu dia a dia">
+		<input type="text" class="form-control" name="word" value="<?php echo isset($_POST['word'])?$_POST['word']:''; ?>" placeholder="Direito e Tecnologia, lado a lado no seu dia a dia">
 		<div class="input-group-append">
 			<button class="btn btn-outline-info" type="submit">Processar</button>
 		</div>
