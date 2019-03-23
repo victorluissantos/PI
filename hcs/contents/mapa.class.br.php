@@ -29,6 +29,10 @@ Class Mapa {
 		return json_encode($data);
 	}
 
+	public static function todas_vogais() {
+		return json_encode(array_merge(json_decode(self::vogais()),json_decode(self::vogais_fortes())));
+	}
+
 	public static function consoantes() {
 		$data = array(
 					0 => 'B',
@@ -91,7 +95,8 @@ Class Mapa {
 			8 => 'SER',
 			9 => 'ESTAR',
 			10 => 'ESTEVE',
-			11 => 'ESTIVESSE'
+			11 => 'ESTIVESSE',
+			12 => 'SERÁ'
 			);
 		return json_encode($data);
 	}
@@ -118,4 +123,14 @@ Class Mapa {
 		return json_encode($data);
 	}
 
+	public static function pronome_pessoal() {
+		$data = array(
+			0 => 'EU',
+			1 => 'TU',
+			2 => 'NÓS',
+			3 => 'VÓS',
+			4 => 'ELES'
+			);
+		return json_encode($data);
+	}
 }

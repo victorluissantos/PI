@@ -12,11 +12,11 @@ Class Frases {
 
 	public static function processar($frase, $ln='pt-br') {
 		$data = array(
-			'msg' => 'Palavra não informada !',
+			'msg' => 'Frase não informada !',
 			'type' => 'danger');
 		if(!empty($frase)) {
 			$data = array(
-				'msg' => 'frase processada com sucesso !',
+				'msg' => 'Frase processada com sucesso !',
 				'type' => 'success',
 				'frase' => $frase,
 				'palavras' => array(0=>'')
@@ -29,6 +29,7 @@ Class Frases {
 				$data['palavras'][] = $value;
 				if(in_array(strtoupper($value), json_decode(self::$mapa->artigos()))) {
 					$data['artigos'][] = $value;
+					$data['tooltips'][] = json_encode(array('palavra'=>$value,'classificacao'=>'Artigo'));
 				} else {
 					$rest = $palavra->silabas($value);
 					$data['tooltips'][] = $rest;

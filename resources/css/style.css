@@ -8,6 +8,19 @@ body {
 	color: #4F5155;
 }
 
+footer {
+   	position: fixed;
+    bottom: 0;
+    left: -2%;
+    width: 100%;
+	z-index: -1;
+	background-image: url('../img/bg-footer.jpg');
+  	height: 380px;
+  	background-repeat: no-repeat;
+  	background-size: 100% 120%;
+  	margin: 0% !important;
+}
+
 h1 {
 	color: #444;
 	background-color: transparent;
@@ -46,4 +59,9 @@ p.footer {
 	margin: 10px;
 	border: 1px solid #D0D0D0;
 	box-shadow: 0 0 8px #D0D0D0;
+}
+
+#bg_footer {
+	width: 100%;
+	margin-bottom: -0px;
 }

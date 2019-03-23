@@ -1,6 +1,6 @@
 <?php 
+include('header.php');
 if(isset($_POST) && !empty($_POST)) {
-	include('header.php');
 	$palavra = new Palavras();
 	$data=json_decode($palavra->silabas($_POST['word']));
 
@@ -31,7 +31,12 @@ if(isset($_POST) && !empty($_POST)) {
 	echo '</div>';
 }
 ?>
-<form method="POST" action="">
-	<input type="text" class="form-control" name="word" value="" />
-	<input type="submit" class="btn btn-info pull-right" value="Processar" />
+<form method="POST" action="" class="hsf">
+	<div class="input-group mb-3">
+		<input type="text" class="form-control" name="word" placeholder="Direito e Tecnologia, lado a lado no seu dia a dia">
+		<div class="input-group-append">
+			<button class="btn btn-outline-info" type="submit">Processar</button>
+		</div>
+	</div>
 </form>
+<?php include('footer.php'); ?>

@@ -20,55 +20,6 @@ Class Palavras {
 	/**
 	* @see  Recebe uma palavra e divide em silabas
 	*/
-	public static function silabas_n($palavra, $ln='pt-br') {
-		$data = array(
-			'msg' => 'Palavra não informada !',
-			'type' => 'danger');
-		if(!empty($palavra)) {
-			if(count(explode(' ', $palavra)) > 1) {
-				$data = array(
-					'msg' => 'Palavra identificada como frase !',
-					'type' => 'warning',
-					'palavra' => $palavra,
-					);
-			} else {
-				$data = array(
-					'msg' => 'Palavra processada com sucesso !',
-					'type' => 'success',
-					'palavra' => $palavra,
-					'classificacao' => '',
-					'silabas' => array(0=>''),
-					'vogais' => array(),
-					'consoantes' => array()
-					);
-
-				$silabas = null; // controla concatenação das vogais
-				foreach (str_split($palavra) as $key => $value) {
-					if($key <=1 && in_array(strtoupper($value), json_decode(self::$mapa->vogais()))
-						||
-						in_array(strtoupper($value), json_decode(self::$mapa->vogais_fortes()))) {
-						$data['vogais'][] = $value;
-					} else {
-						$vogal = $data['vogais'];
-						if(in_array(strtoupper($value), json_decode(self::$mapa->vogais()))) {
-							$data['vogais'] = __FILE__.__LINE__;
-						} else {
-							$data['vogais'] = __FILE__.__LINE__;
-						}
-						$data['vogais'] = __FILE__.__LINE__;
-					}
-				}
-				$data['vogais'] = array_unique($data['vogais']);
-				$data['consoantes'] = array_unique($data['consoantes']);
-				$data['silabas'] = array_filter($data['silabas']);
-			}
-		}
-		return $data;
-	}
-
-	/**
-	* @see  Recebe uma palavra e divide em silabas
-	*/
 	public static function silabas($palavra, $ln='pt-br') {
 		$data = array(
 			'msg' => 'Palavra não informada !',
@@ -94,17 +45,13 @@ Class Palavras {
 				$silabas = 0; // controla concatenação das vogais
 				foreach (str_split($palavra) as $key => $value) {
 					$is_consoante = '';
-					if(in_array(strtoupper($value), json_decode(self::$mapa->vogais()))) {
+					if(in_array(strtoupper($value), json_decode(self::$mapa->todas_vogais()))) {
 						$data['vogais'][] = $value;
 						$is_consoante = false;
 					} else if(in_array(strtoupper($value), json_decode(self::$mapa->consoantes()))) {
 						$data['consoantes'][] = $value;
 						$is_consoante = true;
 					}
-
-					// if(strlen($data['silabas'][$silabas]) == 3) {
-					// 	$silabas++;
-					// }
 
 					if($key < 2 ) {
 						if(in_array(strtoupper($palavra[$key]), json_decode(self::$mapa->consoantes()))) {
@@ -121,7 +68,7 @@ Class Palavras {
 							$data['silabas'][$silabas] .= $value;
 						}
 					} else if (!$is_consoante) {
-						if(!isset($palavra[$key+1]) && in_array($value, array('u'))) {
+						if(!isset($palavra[$key+1]) && in_array($value, array('u','i'))) {
 							$data['classificacao'] = 'Verbo no Passado';
 							$data['silabas'][$silabas] .= $value;
 						}
@@ -153,6 +100,8 @@ Class Palavras {
 								$data['silabas'][$silabas] = $value;
 								if( (strlen($palavra) - $key) == 4 || (strlen($palavra) - $key) == 1) {
 									$data['classificacao'] = 'Verbo';
+								} else if(preg_match('/\p{Lu}/u', $palavra)) {
+									$data['classificacao'] = 'Substantivo Próprio';
 								} else {
 									$data['classificacao'] = 'Substantivo Comum';
 								}
@@ -171,13 +120,27 @@ Class Palavras {
 							$data['silabas'][$silabas] = $value;
 						}
 					}
-					$data['letras'][] = $value;
+					$data['letras'][] = utf8_encode($value);
 				}
+				
+				if(in_array(self::toupper($palavra), json_decode(self::$mapa->verbos_irregulares()))) {
+					$data['classificacao'] = 'Verbo';
+				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->pronome_pessoal()))) {
+					$data['classificacao'] = 'Pronome Pessoal';
+				} else if(empty($data['classificacao']) && preg_match('/\p{Lu}/u', $data['palavra'])) {
+					$data['classificacao'] = 'Substantivo Próprio';
+				}
+
 				$data['vogais'] = array_unique($data['vogais']);
 				$data['consoantes'] = array_unique($data['consoantes']);
 				$data['silabas'] = array_filter($data['silabas']);
 			}
 		}
 		return json_encode($data);
+	}
+
+	private static function toupper($t) {
+		$encoding = mb_internal_encoding(); // ou UTF-8, ISO-8859-1...
+		return mb_strtoupper($t, $encoding); // retorna VIRÁ
 	}
 }
