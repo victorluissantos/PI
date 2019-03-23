@@ -127,9 +127,10 @@ Class Mapa {
 		$data = array(
 			0 => 'EU',
 			1 => 'TU',
-			2 => 'NÓS',
-			3 => 'VÓS',
-			4 => 'ELES'
+			2 => 'ELE',
+			3 => 'NÓS',
+			4 => 'VÓS',
+			5 => 'ELES'
 			);
 		return json_encode($data);
 	}

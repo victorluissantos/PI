@@ -129,6 +129,8 @@ Class Palavras {
 					$data['classificacao'] = 'Pronome Pessoal';
 				} else if(empty($data['classificacao']) && preg_match('/\p{Lu}/u', $data['palavra'])) {
 					$data['classificacao'] = 'Substantivo Próprio';
+				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->preposicoes()))) {
+					$data['classificacao'] = 'Preposição';
 				}
 
 				$data['vogais'] = array_unique($data['vogais']);
