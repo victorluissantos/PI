@@ -3,6 +3,10 @@
 * @author Santos l. Victor
 */
 Class Mapa {
+	
+	function __construct() {
+	}
+	
 	public static function vogais() {
 		$data = array(
 			0 => 'A',
@@ -51,14 +55,23 @@ Class Mapa {
 		return json_encode($data);
 	}
 
+	/**
+	* @see Monta todas as possibilidades de silabas possíveis
+	* @return [JSON] list
+	*/
 	public static function silabas() {
 		$data = array();
-		$combinacoes = json_decode(self::vogais());
-		// $combinacoes[] = 'R';
-		// $combinacoes[] = 'H';
+		$combinacoes = json_decode(self::consoantes());
+		$combinacoes[] = 'CR';
+		$combinacoes[] = 'PR';
+		$combinacoes[] = 'VR';
+		$combinacoes[] = 'CH';
+		$combinacoes[] = 'LH';
+		$combinacoes[] = 'NH';
+		$combinacoes[] = 'RR';
 
-		foreach (json_decode(self::consoantes()) as $key => $value) {
-			foreach ($combinacoes as $i => $val) {
+		foreach ($combinacoes as $key => $value) {
+			foreach (json_decode(self::vogais()) as $i => $val) {
 				$data[] = $value.$val;
 			}
 		}
@@ -67,7 +80,40 @@ Class Mapa {
 
 	public static function verbos_irregulares() {
 		$data = array(
-			0=>'ser'
+			0 => 'SOU',
+			1 => 'É',
+			2 => 'SOMOS',
+			3 => 'SOIS',
+			4 => 'SÃO',
+			5 => 'SER',
+			6 => 'SEJA',
+			7 => 'SEJAM',
+			8 => 'SER',
+			9 => 'ESTAR',
+			10 => 'ESTEVE',
+			11 => 'ESTIVESSE'
+			);
+		return json_encode($data);
+	}
+
+
+	public static function preposicoes() {
+		$data = array(
+			0 => 'NA',
+			1 => 'NO',
+			2 => 'DE',
+			3 => 'DO',
+			4 => 'EM'
+			);
+		return json_encode($data);
+	}
+
+	public static function artigos() {
+		$data = array(
+			0 => 'Á',
+			1 => 'A',
+			2 => 'Ó',
+			3 => 'O',
 			);
 		return json_encode($data);
 	}

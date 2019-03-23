@@ -3,11 +3,41 @@
 * @author Santos L. Victor
 */
 Class Frases {
+	
 	public static $mapa;
+
 	function __construct() {
-		require __DIR__.'/../contents/mapa.class.br.php';
 		self::$mapa = new Mapa();
 	}
+
+	public static function processar($frase, $ln='pt-br') {
+		$data = array(
+			'msg' => 'Palavra não informada !',
+			'type' => 'danger');
+		if(!empty($frase)) {
+			$data = array(
+				'msg' => 'frase processada com sucesso !',
+				'type' => 'success',
+				'frase' => $frase,
+				'palavras' => array(0=>'')
+				);
+			
+			$palavra = new Palavras();
+			$arr = explode(' ', $frase);
+			
+			foreach ($arr as $key => $value) {
+				$data['palavras'][] = $value;
+				if(in_array(strtoupper($value), json_decode(self::$mapa->artigos()))) {
+					$data['artigos'][] = $value;
+				} else {
+					$rest = $palavra->silabas($value);
+					$data['tooltips'][] = $rest;
+				}
+			}
+		}
+		return json_encode($data);
+	}
+
 	/**
 	* @see  Recebe uma palavra e divide em silabas
 	* @author Santos L. Victor
