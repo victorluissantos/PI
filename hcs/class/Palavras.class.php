@@ -141,6 +141,52 @@ Class Palavras {
 		return json_encode($data);
 	}
 
+	/**
+	* @see Recebe um verbo e encontra a forma infinitiva
+	*/
+	public static function infinitivo($palavra) {
+		$data = array(
+			'msg' => 'Palavra não informada !',
+			'type' => 'danger');
+
+		if(!empty($palavra)) {
+			$data = array(
+				'msg' => 'Formatação não realizada !',
+				'type' => 'warning',
+				'classificacao' => 'Verbo Irregular',
+				'verbo' => $palavra,
+				'infinitivo' => ''.__FILE__.__LINE__
+				);
+			if(in_array(self::toupper($palavra), json_decode(self::$mapa->verbos_irregulares()))) {
+				$data = array(
+					'msg' => 'Formatação realizada com sucesso !',
+					'type' => 'sucesso',
+					'classificacao' => 'Verbo Irregular',
+					'verbo' => $palavra,
+					'infinitivo' => ''.__FILE__.__LINE__
+					);
+
+			} else {
+				$infinitivo='';
+				for ($i=strlen($palavra); $i >= 0; $i--) { 
+					# code...
+				}
+
+				$data = array(
+					'msg' => 'Formatação realizada com sucesso !',
+					'type' => 'sucesso',
+					'classificacao' => 'Verbo Irregular',
+					'verbo' => $palavra,
+					'infinitivo' => $infinitivo
+					);
+			}
+		}
+		return json_encode($data);
+	}
+
+	/**
+	* @author deixa a palavra em letra maiuscula independente do encode
+	*/
 	private static function toupper($t) {
 		$encoding = mb_internal_encoding(); // ou UTF-8, ISO-8859-1...
 		return mb_strtoupper($t, $encoding); // retorna VIRÁ

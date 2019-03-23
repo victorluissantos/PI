@@ -96,7 +96,9 @@ Class Mapa {
 			9 => 'ESTAR',
 			10 => 'ESTEVE',
 			11 => 'ESTIVESSE',
-			12 => 'SERÁ'
+			12 => 'SERÁ',
+			13 => 'IR',
+			14 => 'VIR'
 			);
 		return json_encode($data);
 	}
@@ -117,8 +119,10 @@ Class Mapa {
 		$data = array(
 			0 => 'Á',
 			1 => 'A',
-			2 => 'Ó',
-			3 => 'O',
+			2 => 'AS',
+			3 => 'Ó',
+			4 => 'O',
+			5 => 'OS'
 			);
 		return json_encode($data);
 	}
