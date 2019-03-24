@@ -1,3 +1,5 @@
+<img src="resources/imgcapa.png" />
+<br/>
 </table>
 
 </table>
