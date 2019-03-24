@@ -31,7 +31,7 @@ Class Frases {
 					$data['artigos'][] = $value;
 					$data['tooltips'][] = json_encode(array('palavra'=>$value,'classificacao'=>'Artigo'));
 				} else {
-					$rest = $palavra->silabas($value);
+					$rest = $palavra->processa($value);
 					$data['tooltips'][] = $rest;
 				}
 			}

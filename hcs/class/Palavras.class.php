@@ -5,9 +5,11 @@
 */
 Class Palavras {
 	public static $mapa;
+	public static $regex;
 
 	function __construct() {
 		self::$mapa = new Mapa();
+		// self::$regex = new Regex();
 	}
 
 	/**
@@ -20,7 +22,7 @@ Class Palavras {
 	/**
 	* @see  Recebe uma palavra e divide em silabas
 	*/
-	public static function silabas($palavra, $ln='pt-br') {
+	public static function processa($palavra, $ln='pt-br') {
 		$data = array(
 			'msg' => 'Palavra não informada !',
 			'type' => 'danger');
@@ -131,6 +133,10 @@ Class Palavras {
 					$data['classificacao'] = 'Substantivo Próprio';
 				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->preposicoes()))) {
 					$data['classificacao'] = 'Preposição';
+				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->mes()))) {
+					$data['classificacao'] = 'Mês do Ano';
+				} else if( empty($data['classificacao']) ) { // valida dinheiro e data
+					$data['classificacao'] = 'Ano';
 				}
 
 				$data['vogais'] = array_unique($data['vogais']);

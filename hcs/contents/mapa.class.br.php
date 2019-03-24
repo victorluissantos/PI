@@ -122,7 +122,8 @@ Class Mapa {
 			2 => 'AS',
 			3 => 'Ó',
 			4 => 'O',
-			5 => 'OS'
+			5 => 'OS',
+			6 => 'AO'
 			);
 		return json_encode($data);
 	}
@@ -135,6 +136,24 @@ Class Mapa {
 			3 => 'NÓS',
 			4 => 'VÓS',
 			5 => 'ELES'
+			);
+		return json_encode($data);
+	}
+
+	public static function mes() {
+		$data = array(
+			0 => 'JANEIRO',
+			1 => 'FEVEREIRO',
+			2 => 'MARÇO',
+			3 => 'ABRIL',
+			4 => 'MAIO',
+			5 => 'JUNHO',
+			6 => 'JULHO',
+			7 => 'AGOSTO',
+			8 => 'SETEMBRO',
+			9 => 'OUTUBRO',
+			10 => 'NOVEMBRO',
+			11 => 'DEZEMBRO'
 			);
 		return json_encode($data);
 	}
