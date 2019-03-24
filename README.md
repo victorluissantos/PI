@@ -7,8 +7,10 @@
 <b>Autores:</b>
 <table>
 	<tr>
-		<td>Alex</td>
-		<td></td>
+		<td>Alexander Vianna</td>
+		<td>
+			<b>Github:</b>https://github.com/aavianna
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -16,6 +18,8 @@
 		</td>
 		<td>
 			<b>Email:</b>matheussoares.job@gmail.com
+			<br/>
+			<b>GitHub:</b>https://github.com/soaresmat
 		</td>
 	</tr>
 	<tr>
