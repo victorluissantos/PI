@@ -10,26 +10,27 @@ Game with c and Allegro
 	</tr>
 	<tr>
 		</td>
-			<img width="140px" src="img/php_logo.png"/>
+			<img width="100px" src="img/php_logo.png"/>
 		</td>
 		</td>
 			<b>PHP:</b> version 7.2, Regex e cUrl.<br/>
-			<a href="https://www.cprogramming.com/" target="_blank">Documentation</a>
+			<a href="https://www.php.net/manual/en/function.preg-match.php" target="_blank">Documentation</a>
 		</td>
 	</tr>
 	<tr>
 		</td>
-			<img width="140px" src="img/mysql_logo.png"/>
+			<img width="100px" src="img/logo_mysql.jpeg"/>
 		</td>
 		</td>
 			<b>MySQL</b><br/>
-			<a href="https://liballeg.org/" target="_blank">Documentation</a>
+			<a href="https://dev.mysql.com/doc/" target="_blank">Documentation</a>
 		</td>
 	</tr>
 </table>
 <br/>
-Enable Debug mode:<br/>
-<vode>debug=true</code>
+Para habilitar o modo debug, basta adicionar a variável debug como TRUE em sua url:<br/>
+<code><URL>/?debug=true</code>
+<br/>
 
 <b>Autores:</b>
 <table>
