@@ -47,7 +47,7 @@ Enable Debug mode:<br/>
 	</tr>
 	<tr>
 		<td>
-			<img src="resources/img/team/matheus.png" width="60px">
+			<img src="resources/img/team/matheus.jpg" width="60px">
 		</td>
 		<td>
 			<center>Matheus Soares</center>
@@ -63,7 +63,7 @@ Enable Debug mode:<br/>
 	</tr>
 	<tr>
 		<td>
-			<img src="resources/img/team/victor.png" width="60px">
+			<img src="resources/img/team/victor.jpg" width="60px">
 		</td>
 		<td>
 			<center>Victor Luis Santos</center>
