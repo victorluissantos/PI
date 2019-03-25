@@ -74,7 +74,7 @@ Para habilitar o modo debug, basta adicionar a variável debug como TRUE em sua 
 			<br/>
 			<b>GitHub:</b>https://github.com/victorluissantos
 			<br/>
-			<b>Stackoverflow:</b>https://github.com/soaresmat
+			<b>Stackoverflow:</b>https://stackoverflow.com/users/3712534/santos-l-victor
 		</td>
 		<td>
 			<b>Skills:</b> Java, PHP, MySQL e BigData<br/>Laws
