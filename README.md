@@ -15,7 +15,16 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 		</td>
 		</td>
 			<b>PHP:</b> version 7.2, Regex e cUrl.<br/>
-			<a href="https://www.php.net/manual/en/function.preg-match.php" target="_blank">Documentation</a>
+			<a href="https://www.php.net/manual/en/function.preg-match.php" target="_blank">Documentação</a>
+		</td>
+	</tr>
+	<tr>
+		</td>
+			<img width="100px" src="resources/img/php_ml-logo.png"/>
+		</td>
+		</td>
+			<b>PHP-ML:</b> Machine Learning library for PHP.<br/>
+			<a href="https://php-ml.readthedocs.io/en/latest/" target="_blank">Documentação</a>
 		</td>
 	</tr>
 	<tr>
@@ -24,7 +33,7 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 		</td>
 		</td>
 			<b>MySQL</b><br/>
-			<a href="https://dev.mysql.com/doc/" target="_blank">Documentation</a>
+			<a href="https://dev.mysql.com/doc/" target="_blank">Documentação</a>
 		</td>
 	</tr>
 </table>
