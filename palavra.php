@@ -2,7 +2,7 @@
 include('header.php');
 if(isset($_POST) && !empty($_POST)) {
 	$palavra = new Palavras();
-	$data=json_decode($palavra->silabas($_POST['word']));
+	$data=json_decode($palavra->processa($_POST['word']));
 
 	echo '<div class="alert alert-'.$data->type.' alert-dismissable">';
 		echo '<b>'.$data->msg.'</b>';

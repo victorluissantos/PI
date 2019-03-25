@@ -6,39 +6,45 @@
 Class Regex {
 
 	/**
-	* @see
+	* @see valida se é dinheiro
 	* @return TRUE || FALSE [BOOL] 
 	*/
-	private function isdinheiro($text, $ln='pt-br') {
+	public function isdinheiro($text, $ln='pt-br') {
 
-		$data = array('');
-	
-		return false;
+		$rex = '([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})';
 		
+		if (preg_match("/".$rex."/", $text)) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
-	* @see
+	* @see Valida se um determinado text é data
 	* @return TRUE || FALSE [BOOL] 
 	*/
-	private function isdata($text, $ln='pt-br') {
-		$rex = '([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})';
-		$data = array('');
-	
-		return false;
+	public function isdata($text, $ln='pt-br') {
 
+		$rex = '([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})';
+
+		if (preg_match("/".$rex."/", $text)) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
-	* @see
+	* @see Valida se é um ano
 	* @return TRUE || FALSE [BOOL] 
 	*/
-	private function isAno($text, $ln='pt-br') {
-		$rex = '([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})';
-		$data = array('');
-	
-		return false;
+	public function isAno($text, $ln='pt-br') {
 
+		$rex = '([01][0-9])(\.|\/|\-)([01][0-9])(\.|\/|\-)([0-9]{4})';
+		
+		if (preg_match("/".$rex."/", $text)) {
+			return true;
+		}
+		return false;
 	}
 
 }

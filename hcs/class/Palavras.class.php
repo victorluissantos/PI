@@ -9,7 +9,7 @@ Class Palavras {
 
 	function __construct() {
 		self::$mapa = new Mapa();
-		// self::$regex = new Regex();
+		self::$regex = new Regex();
 	}
 
 	/**
@@ -129,13 +129,16 @@ Class Palavras {
 					$data['classificacao'] = 'Verbo';
 				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->pronome_pessoal()))) {
 					$data['classificacao'] = 'Pronome Pessoal';
-				} else if(empty($data['classificacao']) && preg_match('/\p{Lu}/u', $data['palavra'])) {
-					$data['classificacao'] = 'Substantivo Próprio';
 				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->preposicoes()))) {
 					$data['classificacao'] = 'Preposição';
 				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->mes()))) {
 					$data['classificacao'] = 'Mês do Ano';
+				} else if(in_array(self::toupper($palavra), json_decode(self::$mapa->monetaria()))) {
+					$data['classificacao'] = 'Indicativo Monetário';
+				} else if(empty($data['classificacao']) && preg_match('/\p{Lu}/u', $data['palavra'])) {
+					$data['classificacao'] = 'Substantivo Próprio';
 				} else if( empty($data['classificacao']) ) { // valida dinheiro e data
+					die( '___'.self::$regex->isdata('2019-02-25').'___' );
 					$data['classificacao'] = 'Ano';
 				}
 

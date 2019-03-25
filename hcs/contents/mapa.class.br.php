@@ -157,4 +157,15 @@ Class Mapa {
 			);
 		return json_encode($data);
 	}
+
+	public static function monetaria() {
+		$data = array(
+			0 => 'R$',
+			1 => '$',
+			2 => 'U$',
+			3 => 'USD',
+			4 => 'USD$'
+			);
+		return json_encode($data);
+	}
 }
