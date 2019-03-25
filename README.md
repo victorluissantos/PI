@@ -10,7 +10,7 @@ Game with c and Allegro
 	</tr>
 	<tr>
 		</td>
-			<img width="100px" src="img/php_logo.png"/>
+			<img width="100px" src="resources/img/php_logo.png"/>
 		</td>
 		</td>
 			<b>PHP:</b> version 7.2, Regex e cUrl.<br/>
@@ -19,7 +19,7 @@ Game with c and Allegro
 	</tr>
 	<tr>
 		</td>
-			<img width="100px" src="img/logo_mysql.jpeg"/>
+			<img width="100px" src="resources/img/logo_mysql.jpeg"/>
 		</td>
 		</td>
 			<b>MySQL</b><br/>
