@@ -1,6 +1,7 @@
 <img src="resources/img/capa.png" />
 <br/>
 # Robô Auxiliar Jurídico
+<br/>
 Sistema de auxilio a advocacia, consistem em capturar um determinado texto ou voz(convertida em texto), quebrar em frases e analisar trcho a trecho, onde cada ação de enquadra a uma fato jurídico.
 Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma fonte do direito que discipline tal ato, o auxiliar traz em tela a normativa referente a ação.
 <br/>
