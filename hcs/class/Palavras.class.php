@@ -137,9 +137,10 @@ Class Palavras {
 					$data['classificacao'] = 'Indicativo Monetário';
 				} else if(empty($data['classificacao']) && preg_match('/\p{Lu}/u', $data['palavra'])) {
 					$data['classificacao'] = 'Substantivo Próprio';
-				} else if( empty($data['classificacao']) ) { // valida dinheiro e data
-					die( '___'.self::$regex->isdata('2019-02-25').'___' );
-					$data['classificacao'] = 'Ano';
+				} else if(empty($data['classificacao']) && self::$regex->isdinheiro($data['palavra']) ) { // valida dinheiro e data
+					$data['classificacao'] = 'Valor monetário';
+				} else {
+					$data['classificacao'] = 'Sem Relevância';
 				}
 
 				$data['vogais'] = array_unique($data['vogais']);
