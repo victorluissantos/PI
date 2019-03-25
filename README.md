@@ -1,13 +1,16 @@
 <img src="resources/img/capa.png" />
 <br/>
-
-# Auxiliar Jurídico
+# Robô Auxiliar Jurídico
 Sistema de auxilio a advocacia, consistem em capturar um determinado texto ou voz(convertida em texto), quebrar em frases e analisar trcho a trecho, onde cada ação de enquadra a uma fato jurídico.
 Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma fonte do direito que discipline tal ato, o auxiliar traz em tela a normativa referente a ação.
 <br/>
 <table>
 	<tr>
-		</td colspan="2">Tecnologias Utilizadas</td>
+		<td colspan="2">
+			<b>
+				<center>Tecnologias Utilizadas</center>
+			</b>
+		</td>
 	</tr>
 	<tr>
 		</td>
@@ -25,6 +28,15 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 		</td>
 			<b>PHP-ML:</b> Machine Learning library for PHP.<br/>
 			<a href="https://php-ml.readthedocs.io/en/latest/" target="_blank">Documentação</a>
+		</td>
+	</tr>
+	<tr>
+		</td>
+			<img width="100px" src="resources/img/angular_logo.png"/>
+		</td>
+		</td>
+			<b>Angular 2:</b> Angular é uma plataforma que facilita a criação de aplicativos com a web.<br/>
+			<a href="https://angular.io/docs" target="_blank">Documentação</a>
 		</td>
 	</tr>
 	<tr>

@@ -30,13 +30,14 @@ Class Controller extends Mapa {
 	function autoload( $path ) {
 	    $items = glob( $path . DIRECTORY_SEPARATOR . "*" );
 
-	    foreach( $items as $item ) {
+	    foreach ($items as $key => $item) {
+	        
 	        $isPhp = pathinfo( $item )["extension"] === "php";
 
 	        if ( is_file( $item ) && $isPhp ) {
 	            require_once $item;
 	        } elseif ( is_dir( $item ) ) {
-	            autoload( $item );
+	            $this->autoload( $item );
 	        }
 	    }
 	}
