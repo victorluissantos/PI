@@ -53,12 +53,27 @@ if(isset($_POST) && !empty($_POST)) {
 	echo '</div>';
 }
 ?>
-<form method="POST" action="" class="hsf">
-	<div class="input-group mb-3">
-		<textarea type="text" class="form-control" name="word"><?php echo isset($_POST['word'])?$_POST['word']:''; ?>Foi admitido em 01/JUNHO/2015 e dispensado, sem justa causa, em 04/DEZEMBRO/2018. Exerceu a função de caixa, na agência de Tagugatinga, com registro em sua CTPS. - Sua últia e maior remuneração doi no importe de R$ 2.500,00 (dois mil e quinhentos reis) mensais. - Sua jornada de trabalho era das 09h00 ás 16h30, de segundas a sextas-feiras, sempre com 30 minutos de intervalo para alimentação e descanso. Jamais recebeu o pagamento de qualquer hora extra. - Não usufruiu as férias referentes ao período aquisitivo 2016/2017. - Em que se pese tenha sido dispensado sem justa causa e tenha o aviso prévio sifo indenizado por opção do empregador, suas verbas recisórias foram-lhe pagas somente em 20/DEZEMBRO/2018.</textarea>
-		<div class="input-group-append">
-			<button class="btn btn-outline-info" type="submit">Processar</button>
+<div class="app">
+	<form method="POST" action="" class="hsf">
+		<div class="input-single input-group mb-3">
+			<textarea id="note-textarea" type="text" class="form-control" name="word"><?php echo isset($_POST['word'])?$_POST['word']:''; ?>Foi admitido em 01/JUNHO/2015 e dispensado, sem justa causa, em 04/DEZEMBRO/2018. Exerceu a função de caixa, na agência de Tagugatinga, com registro em sua CTPS. - Sua últia e maior remuneração doi no importe de R$ 2.500,00 (dois mil e quinhentos reis) mensais. - Sua jornada de trabalho era das 09h00 ás 16h30, de segundas a sextas-feiras, sempre com 30 minutos de intervalo para alimentação e descanso. Jamais recebeu o pagamento de qualquer hora extra. - Não usufruiu as férias referentes ao período aquisitivo 2016/2017. - Em que se pese tenha sido dispensado sem justa causa e tenha o aviso prévio sifo indenizado por opção do empregador, suas verbas recisórias foram-lhe pagas somente em 20/DEZEMBRO/2018.</textarea>
+			<div class="input-group-append">
+				<button class="btn btn-outline-info" type="submit">Processar</button>
+			</div>
 		</div>
-	</div>
-</form>
+   
+        <button id="start-record-btn" title="Start Recording">Iniciar</button>
+        <button id="pause-record-btn" title="Pause Recording">Pausar</button>
+        <button id="save-note-btn" title="Save Note">Salvar Consulta</button>   
+        <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+        
+        <h3>My Notes</h3>
+        <ul id="notes">
+            <li>
+                <p class="no-notes">You don't have any notes.</p>
+            </li>
+        </ul>
+
+	</form>
+</div>
 <?php include('footer.php'); ?>
