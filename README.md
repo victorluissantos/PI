@@ -13,37 +13,37 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 		</td>
 	</tr>
 	<tr>
-		</td>
+		<td>
 			<img width="100px" src="resources/img/php_logo.png"/>
 		</td>
-		</td>
+		<td>
 			<b>PHP:</b> version 7.2, Regex e cUrl.<br/>
 			<a href="https://www.php.net/manual/en/function.preg-match.php" target="_blank">Documentação</a>
 		</td>
 	</tr>
 	<tr>
-		</td>
+		<td>
 			<img width="100px" src="resources/img/php_ml-logo.png"/>
 		</td>
-		</td>
+		<td>
 			<b>PHP-ML:</b> Machine Learning library for PHP.<br/>
 			<a href="https://php-ml.readthedocs.io/en/latest/" target="_blank">Documentação</a>
 		</td>
 	</tr>
 	<tr>
-		</td>
+		<td>
 			<img width="100px" src="resources/img/angular_logo.png"/>
 		</td>
-		</td>
+		<td>
 			<b>Angular 2:</b> Angular é uma plataforma que facilita a criação de aplicativos com a web.<br/>
 			<a href="https://angular.io/docs" target="_blank">Documentação</a>
 		</td>
 	</tr>
 	<tr>
-		</td>
+		<td>
 			<img width="100px" src="resources/img/logo_mysql.jpeg"/>
 		</td>
-		</td>
+		<td>
 			<b>MySQL</b><br/>
 			<a href="https://dev.mysql.com/doc/" target="_blank">Documentação</a>
 		</td>
