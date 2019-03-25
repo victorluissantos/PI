@@ -18,8 +18,8 @@ if(isset($_POST) && !empty($_POST)) {
 					echo '</button>';
 
 				}
-			} ?>
-
+			}
+			?>
 			<div id="accordion">
 			  	<div class="card">
 			    	<div class="card-header" id="headingOne">
