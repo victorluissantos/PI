@@ -36,7 +36,7 @@ Para habilitar o modo debug, basta adicionar a variável debug como TRUE em sua 
 <table>
 	<tr>
 		<td>
-			<img src="resources/img/team/alex.png" width="60px">
+			<img src="resources/img/team/alex.png" width="80px">
 		</td>
 		<td>Alexander Vianna</td>
 		<td>
@@ -48,7 +48,7 @@ Para habilitar o modo debug, basta adicionar a variável debug como TRUE em sua 
 	</tr>
 	<tr>
 		<td>
-			<img src="resources/img/team/matheus.jpg" width="60px">
+			<img src="resources/img/team/matheus.jpg" width="80px">
 		</td>
 		<td>
 			<center>Matheus Soares</center>
@@ -64,7 +64,7 @@ Para habilitar o modo debug, basta adicionar a variável debug como TRUE em sua 
 	</tr>
 	<tr>
 		<td>
-			<img src="resources/img/team/victor.jpg" width="60px">
+			<img src="resources/img/team/victor.jpg" width="80px">
 		</td>
 		<td>
 			<center>Victor Luis Santos</center>
