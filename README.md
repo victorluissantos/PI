@@ -15,7 +15,7 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 	</tr>
 	<tr>
 		<td>
-			<img width="100px" src="resources/img/php_logo.png"/>
+			<img width="90px" src="resources/img/php_logo.png"/>
 		</td>
 		<td>
 			<b>PHP:</b> version 7.2, Regex e cUrl.<br/>
@@ -24,7 +24,7 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 	</tr>
 	<tr>
 		<td>
-			<img width="100px" src="resources/img/php_ml-logo.png"/>
+			<img width="90px" src="resources/img/php_ml-logo.png"/>
 		</td>
 		<td>
 			<b>PHP-ML:</b> Machine Learning library for PHP.<br/>
@@ -33,7 +33,7 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 	</tr>
 	<tr>
 		<td>
-			<img width="100px" src="resources/img/angular_logo.png"/>
+			<img width="90px" src="resources/img/angular_logo.png"/>
 		</td>
 		<td>
 			<b>Angular 2:</b> Angular é uma plataforma que facilita a criação de aplicativos com a web.<br/>
@@ -42,7 +42,7 @@ Uma vez detectado que existe dntro da ação uma norma regulamentora ou alguma f
 	</tr>
 	<tr>
 		<td>
-			<img width="100px" src="resources/img/logo_mysql.jpeg"/>
+			<img width="90px" src="resources/img/logo_mysql.jpeg"/>
 		</td>
 		<td>
 			<b>MySQL</b><br/>

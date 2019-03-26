@@ -139,8 +139,6 @@ Class Palavras {
 					$data['classificacao'] = 'Substantivo Próprio';
 				} else if(empty($data['classificacao']) && self::$regex->isdinheiro($data['palavra']) ) { // valida dinheiro e data
 					$data['classificacao'] = 'Valor monetário';
-				} else {
-					$data['classificacao'] = 'Sem Relevância';
 				}
 
 				$data['vogais'] = array_unique($data['vogais']);

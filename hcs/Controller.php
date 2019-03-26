@@ -32,7 +32,7 @@ Class Controller extends Mapa {
 
 	    foreach ($items as $key => $item) {
 	        
-	        $isPhp = pathinfo( $item )["extension"] === "php";
+	        $isPhp = 'php'; //pathinfo( $item )(!empty(["extension"])?["extension"]:'php') === "php";
 
 	        if ( is_file( $item ) && $isPhp ) {
 	            require_once $item;
