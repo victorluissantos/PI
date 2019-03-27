@@ -15,9 +15,9 @@ Class Textos {
 			'type' => 'danger',
 			'msg' => 'Nenhum informação coletada !'
 			);
-		if() {
+		if(1==2) {
 
-			if() {
+			if(2==4) {
 				$frase = new Frases();
 			}
 		}
@@ -42,17 +42,17 @@ Class Textos {
 			);
 		if(!empty($verbs) || !empty($sujects)) {
 
-			require_once __DIR__ . '/vendor/autoload.php';
+			// require_once __DIR__ . '/vendor/autoload.php';
 
-			use Phpml\Classification\KNearestNeighbors;
+			// use Phpml\Classification\KNearestNeighbors;
 
-			$samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];
-			$labels = ['a', 'a', 'a', 'b', 'b', 'b'];
+			// $samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];
+			// $labels = ['a', 'a', 'a', 'b', 'b', 'b'];
 
-			$classifier = new KNearestNeighbors();
-			$classifier->train($samples, $labels);
+			// $classifier = new KNearestNeighbors();
+			// $classifier->train($samples, $labels);
 
-			$classifier->predict([3, 2]);
+			// $classifier->predict([3, 2]);
 			// return 'b'
 		}
 
